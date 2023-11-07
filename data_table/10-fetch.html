@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+</head>
+<style>
+    *{padding: 0px; margin: 0px; text-align: center; box-sizing: border-box;}
+    h2{padding: 40px 0 20px;}
+    .tbl-wrap{padding: 20px; margin: 0 auto; display: block; width: 100%; max-width: 980px;}
+    table{border: 1px solid #ddd; margin-bottom: 20px; border-collapse: collapse; width: 100%;}
+    table thead{background: #f8f8f8;}
+    th, td{ padding: 10px; border: 1px solid #ddd;}
+    caption{text-align: left; font-weight: 700; font-size: 14px; background: #ddd; padding: 10px 20px; border: 1px solid #ddd;}
+
+</style>
+<body>
+    <h2>fetch</h2>
+    <div class="tbl-wrap"></div>
+</body>
+<script>
+    function makeTable(data) {
+        let txt = '';
+        const table = document.querySelector('.tbl-wrap')
+        const key = Object.keys(data[0])
+
+        for(let i=0;i < data.length;i++){
+            txt +=
+            ` <table>
+                <caption>테이블${i + 1}</caption>
+                <thead>`
+                    key.forEach((el)=>{
+                        txt += `<th>${el}</th>`
+                    })
+                    
+            txt +=  `
+                </thead>
+                <tbody>
+                    <tr>
+                    `
+                    key.forEach((el,idx)=>{
+                        txt += 
+                            `
+                            <td>`
+                                if(idx == 6){
+                                    txt +=
+                                    `
+                                    <div>direction: ${data[i]['wind10m']['direction']}</div>
+                                    <div>speed :${data[i]['wind10m']['speed']}</div>
+                                    `
+                                }else{ 
+                                    txt += `${data[i][key[idx]]}`
+                                }
+                        txt +=
+                            `</td>
+                            `
+                        })
+                        
+            txt +=
+            `
+                    </tr>
+                </tbody>
+            </table>
+            `
+        }
+        table.innerHTML = txt;
+    }
+    fetch('https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0')
+    .then((response)=>{
+        return response.json();
+    })
+    .then((data)=> {
+        makeTable( data.dataseries)
+
+        
+
+    })
+</script>
+</html>
