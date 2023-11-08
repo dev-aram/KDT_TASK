@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/layout.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fe62eb186a761a826a408ded7188c2&libraries=services,clusterer,drawing"></script>
+    <script src="./js/data.js" defer></script>
+    <script src="./js/map.js" defer></script>
+    <title>강력범죄 통계</title>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1 class="logo">crime</h1>
+        </div>
+    </header>
+    <main>
+        <section class="sec1">
+            <div class="txt-wrap">
+                <div class="tit">지역별 범죄건수를<br>한번에 확인하세요!</div>
+                <p class="sub">2017년 지역별 범죄 건수입니다.<br>범죄 분류별로도 확인이 가능합니다.</p>
+            </div>
+        </section>
+        <section class="sec2">
+            <h2>범죄 카테고리</h2>
+            <ul class="cate-wrap">
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate1" class="type1" value="강력범죄">
+                    <label for="mainCate1">강력범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate2" class="type1" value="절도범죄">
+                    <label for="mainCate2">절도범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate3" class="type1" value="폭력범죄">
+                    <label for="mainCate3">폭력범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate4" class="type1" value="지능범죄">
+                    <label for="mainCate4">지능범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate5" class="type1" value="풍속범죄">
+                    <label for="mainCate5">풍속범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate6" class="type1" value="특별경제범죄">
+                    <label for="mainCate6">특별경제범죄</label>
+               </li> 
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate7" class="type1" value="마약범죄">
+                    <label for="mainCate7">마약범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate8" class="type1" value="보건범죄">
+                    <label for="mainCate8">보건범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate9" class="type1" value="환경범죄">
+                    <label for="mainCate9">환경범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate10" class="type1" value="교통범죄">
+                    <label for="mainCate10">교통범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate11" class="type1" value="노동범죄">
+                    <label for="mainCate11">노동범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate12" class="type1" value="안보범죄">
+                    <label for="mainCate12">안보범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate13" class="type1" value="선거범죄">
+                    <label for="mainCate13">선거범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate14" class="type1" value="병역범죄">
+                    <label for="mainCate14">병역범죄</label>
+               </li>
+               <li>
+                    <input type="radio" name="mainCate" id="mainCate15" class="type1" value="기타범죄">
+                    <label for="mainCate15">기타범죄</label>
+               </li>
+            </ul>
+        </section>
+        <section>
+            <div class="map-wrap">
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
