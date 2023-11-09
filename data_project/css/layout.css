@@ -10,17 +10,6 @@ header{padding: 25px 30px; background: #fff; box-sizing: border-box;}
 header .inner{width: 100%;  max-width: 980px; margin: 0 auto;}
 h1.logo{font-size: 20px; font-weight: 700; color: #243a46;}
 
-/* 지도 */
-#map{position: relative;}
-#map .text{position: absolute; left: 0; top: 0;}
-#map text{color: #fff; }
-svg{width: 100%; height: auto;}
-svg path{fill: #666; transition: all 0.2s; cursor: pointer;}
-svg path:hover{fill: #1494d9;}
-
-/* 지도 마커 */
-.Gyeonggi::after{content: 'ddddddddd'; display: block;}
-
 /* 메인 */
 main{width: 100%; max-width: 980px; margin: 0 auto; padding: 0 20px 100px; box-sizing: border-box;}
 #map{width: 100%; height: 500px;}
@@ -46,7 +35,8 @@ section h2{font-size: 22px; font-weight: 600;  margin-bottom: 30px;}
 .sec3{display: block; justify-content: space-between; align-items: center;}
 /* 왼쪽 통계 */
 /* 토탈 카운트 */
-.sec3 .total{font-size: 100px; font-weight: 700; color: #1494d9; margin-bottom: 40px;}
+.sec3 .total{margin-bottom: 40px; font-weight: 700;}
+.sec3 .total .cateTot{font-size: 100px; color: #1494d9; margin-right: 10px;}
 
 /* 게이지 */
 .sec3 .txt{text-align: left; margin-bottom: 10px;font-weight: 500;}

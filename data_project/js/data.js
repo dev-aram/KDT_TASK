@@ -27,11 +27,10 @@ async function fetchData(){
             Obj.push(newObj);
         });
 
-
         // 총 범죄 건수 total값 구하기
         Obj.forEach((el, idx)=>{
-            for(let i=0;i<el.length;i++){
-                total += Number(el[i])
+            for(let i=0;i<Object.keys(el).length;i++){
+                total += Number(Object.values(el)[i]);
             }
         })
 
@@ -45,24 +44,45 @@ async function fetchData(){
             $('.sec3').fadeIn();
         })
         // 천 단위로 , 찍기
-        total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        allTotal = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
         // dataTot 에 값 출력
-        document.querySelector('.dataTot').innerText = `/ ${total}건`
+        document.querySelector('.dataTot').innerText = `/ ${allTotal}건`
 
 
         // 대분류 별 토탈값
-        function dataSet(dataValue = '강력범죄') {            
+        function dataSet(dataValue = '강력범죄') {  
+            let Obj = []; // 대분류, 중분류 제외 배열   
+            cateTotal = 0 
             for(value in data){
                 if(data[value]['범죄대분류'] == dataValue){
-                    console.log(data[value]);
-                    
+                    const newObj = { ...data[value] };
+                    delete newObj['범죄대분류'];
+                    delete newObj['범죄중분류'];
+                    Obj.push(newObj)  
                 }
             }
-        }
-        
+    
+            // 대분류 범죄건수 total값 구하기
+            Obj.forEach((el, idx)=>{
+                for(let i=0;i<Object.keys(el).length;i++){
+                    cateTotal += Number(Object.values(el)[i]);
+                }
+            })
+            // 퍼센트값 구하기
+            const percentage = ((cateTotal / total) * 100).toFixed(2);
+            document.querySelector('#catePer').innerText = `${percentage}%`
 
+            const perBar = document.querySelector('.sec3 .per span');
+            $(perBar).css('width', percentage + '%')
+            
+            
+            // 천 단위로 , 찍기
+            cateTotal = cateTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            // dataTot 에 값 출력
+            document.querySelector('.cateTot').innerText = `${cateTotal}건`
 
+        }    
     } catch (error) {
         console.error('API 요청 오류:', error);
     }
