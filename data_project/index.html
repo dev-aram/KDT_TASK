@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/layout.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fe62eb186a761a826a408ded7188c2&libraries=services,clusterer,drawing"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/data.js" defer></script>
-    <script src="./js/map.js" defer></script>
     <title>강력범죄 통계</title>
 </head>
 <body>
@@ -25,73 +24,53 @@
         <section class="sec2">
             <h2>범죄 카테고리</h2>
             <ul class="cate-wrap">
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate1" class="type1" value="강력범죄">
-                    <label for="mainCate1">강력범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate2" class="type1" value="절도범죄">
-                    <label for="mainCate2">절도범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate3" class="type1" value="폭력범죄">
-                    <label for="mainCate3">폭력범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate4" class="type1" value="지능범죄">
-                    <label for="mainCate4">지능범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate5" class="type1" value="풍속범죄">
-                    <label for="mainCate5">풍속범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate6" class="type1" value="특별경제범죄">
-                    <label for="mainCate6">특별경제범죄</label>
-               </li> 
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate7" class="type1" value="마약범죄">
-                    <label for="mainCate7">마약범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate8" class="type1" value="보건범죄">
-                    <label for="mainCate8">보건범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate9" class="type1" value="환경범죄">
-                    <label for="mainCate9">환경범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate10" class="type1" value="교통범죄">
-                    <label for="mainCate10">교통범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate11" class="type1" value="노동범죄">
-                    <label for="mainCate11">노동범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate12" class="type1" value="안보범죄">
-                    <label for="mainCate12">안보범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate13" class="type1" value="선거범죄">
-                    <label for="mainCate13">선거범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate14" class="type1" value="병역범죄">
-                    <label for="mainCate14">병역범죄</label>
-               </li>
-               <li>
-                    <input type="radio" name="mainCate" id="mainCate15" class="type1" value="기타범죄">
-                    <label for="mainCate15">기타범죄</label>
-               </li>
+               <li><button type="button" id="mainCate1" class="type1 on main-cate">강력범죄</button></li> 
+               <li><button type="button" id="mainCate2" class="type1 main-cate">절도범죄</button></li> 
+               <li><button type="button" id="mainCate3" class="type1 main-cate">폭력범죄</button></li> 
+               <li><button type="button" id="mainCate4" class="type1 main-cate">지능범죄</button></li> 
+               <li><button type="button" id="mainCate5" class="type1 main-cate">풍속범죄</button></li> 
+               <li><button type="button" id="mainCate6" class="type1 main-cate">득별경제범죄</button></li> 
+               <li><button type="button" id="mainCate7" class="type1 main-cate">마약범죄</button></li>
+               <li><button type="button" id="mainCate8" class="type1 main-cate">보건범죄</button></li>
+               <li><button type="button" id="mainCate9" class="type1 main-cate">환경범죄</button></li>
+               <li><button type="button" id="mainCate10" class="type1 main-cate">교통범죄</button></li>
+               <li><button type="button" id="mainCate11" class="type1 main-cate">노동범죄</button></li>
+               <li><button type="button" id="mainCate12" class="type1 main-cate">안보범죄</button></li>
+               <li><button type="button" id="mainCate13" class="type1 main-cate">선거범죄</button></li>
+               <li><button type="button" id="mainCate14" class="type1 main-cate">병역범죄</button></li>
+               <li><button type="button" id="mainCate15" class="type1 main-cate">기타범죄</button></li>
             </ul>
         </section>
-        <section>
-            <div class="map-wrap">
-                <div id="map"></div>
-            </div>
+        <section class="sec3">
+          <div class="left">
+               <div class="total">50건 <span class="dataTot">/ ddd건</span></div>
+               <div>
+                    <div class="txt">전체 범죄건수 중 <span>50%</span></div>
+                    <div class="per">
+                         <span></span>
+                    </div>
+               </div>
+          </div>
+          <div class="right">
+               <table>
+                    <tr>
+                         <th>강원</th>
+                         <td>0건</td>
+                    </tr>
+                    <tr>
+                         <th>경기</th>
+                         <td>0건</td>
+                    </tr>
+                    <tr>
+                         <th>서울</th>
+                         <td>0건</td>
+                    </tr>
+               </table>
+          </div>
         </section>
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

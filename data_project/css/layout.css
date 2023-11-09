@@ -1,18 +1,28 @@
 @import url(./reset.css);
 
 /* 라디오 공통 */
-.type1{appearance: none !important; display: none;}
-.type1 + label{border: 1px solid #ddd; padding: 10px; display: block; box-sizing: border-box; width: auto; border-radius: 5px; cursor: pointer;  transition: all 0.3s;}
-.type1:checked + label{border: 1px solid #1494d9; color: #1494d9;}
-.type1:hover + label{border: 1px solid #1494d9; color: #1494d9;}
+.type1{border: 1px solid #ddd; padding: 10px; display: block; box-sizing: border-box; width: auto; border-radius: 5px; cursor: pointer;}
+.type1.on{border: 1px solid #1494d9; color: #1494d9;}
+/* .type1:hover{border: 1px solid #1494d9; color: #1494d9;} */
 
 /* 헤더 */
 header{padding: 25px 30px; background: #fff; box-sizing: border-box;}
 header .inner{width: 100%;  max-width: 980px; margin: 0 auto;}
 h1.logo{font-size: 20px; font-weight: 700; color: #243a46;}
 
+/* 지도 */
+#map{position: relative;}
+#map .text{position: absolute; left: 0; top: 0;}
+#map text{color: #fff; }
+svg{width: 100%; height: auto;}
+svg path{fill: #666; transition: all 0.2s; cursor: pointer;}
+svg path:hover{fill: #1494d9;}
+
+/* 지도 마커 */
+.Gyeonggi::after{content: 'ddddddddd'; display: block;}
+
 /* 메인 */
-main{width: 100%; max-width: 980px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;}
+main{width: 100%; max-width: 980px; margin: 0 auto; padding: 0 20px 100px; box-sizing: border-box;}
 #map{width: 100%; height: 500px;}
 
 /* 섹션 공통 */
@@ -26,7 +36,31 @@ section h2{font-size: 22px; font-weight: 600;  margin-bottom: 30px;}
 .sec1 .sub{color: #fff; font-size: 12px; line-height: 1.3;}
 
 /* 대카테고리  */
-.sec2{margin-bottom: 10px;}
+.sec2{margin-bottom: 40px;}
 .cate-wrap{display: flex; flex-wrap: wrap;}
 .cate-wrap li{margin-right: 5px; margin-bottom: 5px;}
 .cate-wrap li:last-child{margin-right: 0px;}
+
+
+/* 섹션3 */
+.sec3{display: block; justify-content: space-between; align-items: center;}
+/* 왼쪽 통계 */
+/* 토탈 카운트 */
+.sec3 .total{font-size: 100px; font-weight: 700; color: #1494d9; margin-bottom: 40px;}
+
+/* 게이지 */
+.sec3 .txt{text-align: left; margin-bottom: 10px;font-weight: 500;}
+.sec3 .txt span{font-weight: 800; color: #1494d9;}
+.sec3 .per{width: 100%; background: #e5eaee; height: 20px; border-radius: 50px; position: relative; overflow: hidden; margin-bottom: 20px;}
+.sec3 .per span{position: absolute; left: 0; background-color: #fdac17; width: 0%; height: 100%; transition: all 0.2s;}
+.sec3 .per span.on{position: absolute; left: 0; background-color: #fdac17; width: 50%; height: 100%;}
+
+/* 표 */
+.sec3 .right{width: 100%;}
+.sec3 table{border: 1px solid #ddd; background: #fff; width: 100%;}
+.sec3 table th, .sec3 table td{padding: 15px; text-align: left;}
+.sec3 table th{font-weight: 500; border-right: 1px solid #ddd; width: 30%;}
+.sec3 table tr{border-bottom: 1px solid #ddd;}
+
+/* 푸터 */
+footer{background: #333; padding: 100px;}
