@@ -52,6 +52,9 @@ section h2{font-size: 22px; font-weight: 600;  margin-bottom: 30px;}
 
 /* 소카테고리 */
 .sub-cate{display: flex;}
+.sub-wrap{display: flex; justify-content: space-between; align-items: center;}
+.sub-total{display: none; font-weight: 600; }
+.sub-total span{color: #fdac17;}
 
 /* info */
 .info{text-align: center; padding-top: 40px; color: #e4e8eb; font-weight: 400;}

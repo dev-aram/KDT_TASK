@@ -44,6 +44,7 @@ async function fetchData(){
             $('.info').hide();
             $('.sec3').fadeIn();
             $('.sec3 .right').hide();
+            $('.sub-total').hide()
         })
 
 
@@ -58,7 +59,6 @@ async function fetchData(){
         function dataSet(dataValue = '강력범죄',) {  
             let Obj = []; // 대분류, 중분류 제외 배열   
             let subCate = []; // 중분류 리스트
-            let key = ''; //키값
             let value = '';//벨류값
             let txt = '';
             cateTotal = 0 
@@ -110,6 +110,7 @@ async function fetchData(){
             btnValue = $(this).text();
             tableDataSet(btnValue)
             $('.sec3 .right').fadeIn();
+            $('.sub-total').show()
         })
         
         function tableDataSet(btnValue) {
@@ -127,7 +128,14 @@ async function fetchData(){
             const table = document.querySelector('table'); //테이블
             let dataKey = Object.keys(Obj[0]); //키값
             let dataValue = Object.values(Obj[0]);//벨류값
+            let subTot = 0;
             let txt = '';
+            
+            dataValue.forEach(el=>{
+                subTot += Number(el)
+            })
+            subTot = subTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            document.querySelector('.sub-total span').innerText = `${subTot}`
 
             // 테이블 생성
             dataKey.forEach((e,idx)=>{
