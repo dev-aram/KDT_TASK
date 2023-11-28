@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>바나프레소</title>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fe62eb186a761a826a408ded7188c2&libraries=services,clusterer,drawing" defer></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f46b9200e233477cde6973c5ea1de304&libraries=services,clusterer,drawing"></script>
     <script src="./bana.js" defer></script>
 </head>
 <style>
@@ -12,33 +12,24 @@
     ul, li{list-style: none;}
     h1{padding: 40px ;}
     .wrap{display: flex; justify-content: space-between; padding: 40px; box-sizing: border-box;}
-    .wrap .left{width: 30%; height: 80vh; overflow-y: scroll;}
+    .wrap .left{width: 30%; height: 80vh; overflow-y: scroll; margin-right: 20px;}
     .wrap .left li{margin-bottom: 20px;}
     .wrap .left .img-wrap{border: 1px solid #ddd; border-radius: 10px; overflow: hidden; margin-bottom: 5px; height: 150px;}
     .wrap .left .img-wrap img{width: 100%;}
     .wrap .left .name{font-size: 18px; font-weight: bold; margin-bottom: 10px;}
     .wrap .left .addr{font-size: 14px; color: #666;}
+    .right{width: 70%; border-radius: 10px; overflow: hidden;}
+    #map{width: 100% !important; height: 100% !important;}
 </style>
 <body>
     <h1>바나프레소 매장</h1>
     <div class="wrap">
         <div class="left">
             <ul>
-                <li>
-                    <div>
-                        <div class="img-wrap"><img src="./bana/AK금정점.jpg" alt="이미지"></div>
-                        <div class="store-info">
-                            <div class="name">금정점</div>
-                            <div class="addr">ㅇㅇㅇㅇㅇㅇㅇ</div>
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
         <div class="right">
-            <div id="map">
-
-            </div>
+            <div id="map" style="width:500px;height:400px;"></div>
         </div>
     </div>
 </body>
